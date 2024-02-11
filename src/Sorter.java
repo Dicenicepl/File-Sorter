@@ -8,12 +8,16 @@ public class Sorter {
     private final String path = "/home/dicenice/Desktop/Projects/sorterTest/";
     File directory = new File(path);
 
-    public void sorting(){
+    public void sorting(byte choose) {
         if(directory.isDirectory()){
             File[] list = listFiles();
             for (File file : list){
                 if (file.isFile()) {
-                    sortByAlphabet(file);
+                    switch (choose) {
+                        case 0 -> sortByExtention(file);
+                        case 1 -> sortByAlphabet(file);
+                        case 2 -> sortByDateOfCreation(file);
+                    }
                 }
             }
         }
