@@ -62,9 +62,9 @@ public class Sorter {
     private void moveToFolder(Path oldPath, Path newPath){
         try {
             Files.move(oldPath, newPath.resolve(oldPath.getFileName()));
-            System.out.println("Done");
+            System.out.println("MOVE TO FOLDER: Done");
         }catch (IOException e){
-            System.out.println("Error");
+            System.out.println("MOVE TO FOLDER: Error");
         }
     }
     private boolean createDirectory(String name){
