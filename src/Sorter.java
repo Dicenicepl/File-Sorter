@@ -5,10 +5,12 @@ import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 
 public class Sorter {
-    private final String path = "/home/dicenice/Desktop/Projects/sorterTest/";
-    File directory = new File(path);
+    private String path;
+    File directory;
 
-    public void sorting(byte choose) {
+    public void sorting(byte choose, String path) {
+        this.path = path + "/";
+        directory = new File(path);
         if(directory.isDirectory()){
             File[] list = listFiles();
             for (File file : list){

@@ -4,14 +4,14 @@ import java.util.TimerTask;
 public class Schedule {
 
     private final Sorter sorter = new Sorter();
-    public void test(byte choose){
-        new Timer().scheduleAtFixedRate(print(choose),0L, 2000L);
+    public void activeTimer(byte choose, String path, long period){
+        new Timer().scheduleAtFixedRate(task(choose, path),0L, period);
     }
-    private TimerTask print(byte choose){
+    private TimerTask task(byte choose, String path){
         return new TimerTask() {
             @Override
             public void run() {
-                sorter.sorting(choose);
+                sorter.sorting(choose, path);
             }
         };
     }
